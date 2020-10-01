@@ -30,7 +30,7 @@ public class ShowWeb extends Activity
 		et = (EditText)findViewById(R.id.webAddress);
 	    wv = (WebView)findViewById(R.id.webkit);
 	    wv.setWebViewClient(new MyWebViewClient());
-	    WebSetting();
+	    wv.getSettings().setJavaScriptEnabled(true);
 	    
 
 	    et.setOnKeyListener(new OnKeyListener()
@@ -110,19 +110,5 @@ public class ShowWeb extends Activity
             return true;
         }
     }	
- public void WebSetting() {
-        WebSettings webSettings = wv.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-        webSettings.setRenderPriority(RenderPriority.HIGH);
-        webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
-        webSettings.setAppCacheEnabled(true);
-        webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        webSettings.setDomStorageEnabled(true);
-        //noinspection deprecation
-        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
-        webSettings.setUseWideViewPort(true);
-        webSettings.setSavePassword(true);
-        webSettings.setSaveFormData(true);
-        webSettings.setEnableSmoothTransition(true);
+
 }
